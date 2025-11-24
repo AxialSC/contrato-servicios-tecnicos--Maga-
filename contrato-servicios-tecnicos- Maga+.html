@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta de Contrato - AXIAL SECURITY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .info-banner {
+            background: #f8f9fa;
+            padding: 25px 40px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .info-label {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .info-value {
+            font-size: 1.1em;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.6em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            font-weight: 600;
+        }
+        
+        .section-content {
+            font-size: 1.05em;
+            color: #34495e;
+            line-height: 1.8;
+        }
+        
+        .section-content p {
+            margin-bottom: 15px;
+        }
+        
+        .highlight-box {
+            background: #f0f7ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .highlight-box strong {
+            color: #1e3c72;
+        }
+        
+        .coverage-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .coverage-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .coverage-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        
+        .coverage-list li strong {
+            color: #2c3e50;
+        }
+        
+        .plan-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .plan-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+        
+        .plan-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .plan-name {
+            font-size: 1.4em;
+            color: #1e3c72;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .plan-price {
+            font-size: 2em;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .plan-price-note {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        .plan-features {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .plan-features li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95em;
+            color: #34495e;
+        }
+        
+        .plan-features li:before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+        
+        .plan-recommended {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+            position: relative;
+        }
+        
+        .recommended-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .exclusions {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .exclusions strong {
+            color: #856404;
+        }
+        
+        .inclusions {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .inclusions strong {
+            color: #155724;
+        }
+        
+        .sucursales-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .sucursal-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .sucursal-name {
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+        
+        .sucursal-address {
+            font-size: 0.95em;
+            color: #5a6c7d;
+        }
+        
+        .zona-title {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+            padding-left: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .signature-section {
+            background: #f8f9fa;
+            padding: 40px;
+            margin-top: 40px;
+            border-top: 3px solid #667eea;
+        }
+        
+        .signature-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .signature-box {
+            text-align: center;
+        }
+        
+        .signature-line {
+            border-top: 2px solid #2c3e50;
+            margin: 60px 20px 10px 20px;
+        }
+        
+        .signature-label {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-top: 10px;
+        }
+        
+        .checkbox-group {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .checkbox-item:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        
+        .checkbox-label {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9em;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.6em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .plan-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>PROPUESTA DE CONTRATO DE SERVICIOS TÉCNICOS</h1>
+            <div class="subtitle">Mantenimiento Preventivo y Correctivo Integral</div>
+        </div>
+        
+        <div class="info-banner">
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Proveedor</div>
+                    <div class="info-value">AXIAL SECURITY</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Responsable Técnico</div>
+                    <div class="info-value">Iván Abrigo</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Cliente</div>
+                    <div class="info-value">MAGA+</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Atención</div>
+                    <div class="info-value">Sr. Gustavo Del Vecchio</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Fecha de Propuesta</div>
+                    <div class="info-value">24 de Noviembre de 2025</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Alcance</div>
+                    <div class="info-value">Red de 14 Sucursales (AMBA)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">1. OBJETO DEL CONTRATO</h2>
+                <div class="section-content">
+                    <p>El PRESTADOR (AXIAL SECURITY) se compromete a brindar servicio técnico de <strong>Mantenimiento Preventivo y Correctivo Integral</strong> para la red de farmacias del CLIENTE (MAGA+). El servicio tiene por objeto ejecutar rutinas de prevención para evitar fallas futuras y brindar respuesta correctiva inmediata ante incidencias, garantizando la operatividad continua de los activos.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">2. ALCANCE TÉCNICO (ACTIVOS CUBIERTOS)</h2>
+                <div class="section-content">
+                    <p>El servicio cubre la mano de obra para el diagnóstico, reparación, reemplazo y agregado de componentes en las siguientes áreas:</p>
+                    
+                    <ul class="coverage-list">
+                        <li>
+                            <strong>Iluminación LED Integral:</strong> Mantenimiento de luminarias en interior y exterior del local. Incluye reparación, reemplazo y agregado de nuevas luminarias según necesidad (en techos, muebles, estanterías y exhibidores).
+                        </li>
+                        <li>
+                            <strong>Electricidad:</strong> Tableros principales y seccionales, cableados internos/externos, tomacorrientes y fuentes de alimentación.
+                        </li>
+                        <li>
+                            <strong>Mobiliario y Cerrajería:</strong> Reparación de muebles, bajo mesadas, ajuste y cambio de bisagras. Reemplazo de cerraduras tanto de acceso al local como de mobiliario interno.
+                        </li>
+                        <li>
+                            <strong>Cajas Fuertes:</strong> Servicio de apertura o reemplazo de unidades (sujeto a evaluación técnica según modelo y tamaño).
+                        </li>
+                        <li>
+                            <strong>Tecnología y Puestos de Trabajo:</strong> Movimiento y reubicación de PCs de ventas según necesidad operativa. Mantenimiento de UPS, Impresoras y Servidores.
+                        </li>
+                        <li>
+                            <strong>Seguridad Electrónica:</strong>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>CCTV: Cámaras y NVR</li>
+                                <li>Alarmas (Activas/Pasivas): Mantenimiento integral, reemplazo de baterías, cableado, sensores y configuraciones</li>
+                                <li>Accesos: Puertas Automáticas y Sistemas EAS (Antenas)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <strong>NOTA DE CALIDAD:</strong> El PRESTADOR garantiza que todas las intervenciones se realizan utilizando herramental de primera línea (Marcas: Milwaukee, DeWalt, Fluke), asegurando diagnósticos precisos, seguridad eléctrica y estándares de terminación superiores.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">3. MODALIDADES DE CONTRATACIÓN (Niveles de Servicio - SLA)</h2>
+                <div class="section-content">
+                    <p>El CLIENTE seleccionará una de las siguientes opciones operativas para la totalidad de la red. Todas las opciones incluyen cobertura Preventiva y Correctiva. Los valores expresados son por sucursal, por mes (+IVA).</p>
+                    
+                    <div class="plan-container">
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <div class="plan-name">ABONO BÁSICO</div>
+                                <div class="plan-name" style="font-size: 1em; opacity: 0.7;">(IN SITU)</div>
+                                <div class="plan-price">$600.000</div>
+                                <div class="plan-price-note">+ IVA por sucursal/mes</div>
+                            </div>
+                            
+                            <ul class="plan-features">
+                                <li>Mano de obra técnica especializada</li>
+                                <li>Cobertura todos los activos</li>
+                                <li>Horario: Lun-Vie 08:00-17:00 hs</li>
+                                <li>Tiempo de respuesta: 4 horas</li>
+                            </ul>
+                            
+                            <div class="exclusions">
+                                <strong>Exclusiones:</strong><br>
+                                • Motores de Cortina: NO incluidos<br>
+                                • Gastos operativos: se facturan aparte<br>
+                                • Cartelería LED Externa: NO incluida
+                            </div>
+                        </div>
+                        
+                        <div class="plan-card plan-recommended">
+                            <div class="recommended-badge">RECOMENDADO</div>
+                            <div class="plan-header">
+                                <div class="plan-name">ABONO MEDIUM</div>
+                                <div class="plan-name" style="font-size: 1em; opacity: 0.7;">(EXTENDIDO)</div>
+                                <div class="plan-price">$900.000</div>
+                                <div class="plan-price-note">+ IVA por sucursal/mes</div>
+                            </div>
+                            
+                            <ul class="plan-features">
+                                <li>Todo del Plan Básico</li>
+                                <li>+ Motores de Cortinas Metálicas</li>
+                                <li>Horario: Lun-Sáb 08:00-20:00 hs</li>
+                                <li>Tiempo de respuesta: 2 horas</li>
+                                <li>Respuesta prioritaria</li>
+                            </ul>
+                            
+                            <div class="inclusions">
+                                <strong>Incluye:</strong><br>
+                                • 100% viáticos, peajes y estacionamiento
+                            </div>
+                            
+                            <div class="exclusions">
+                                <strong>Exclusión:</strong><br>
+                                • Cartelería LED Externa: NO incluida
+                            </div>
+                        </div>
+                        
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <div class="plan-name">ABONO FULL</div>
+                                <div class="plan-name" style="font-size: 1em; opacity: 0.7;">(PREMIUM 24/7)</div>
+                                <div class="plan-price">$1.200.000</div>
+                                <div class="plan-price-note">+ IVA por sucursal/mes</div>
+                            </div>
+                            
+                            <ul class="plan-features">
+                                <li>Cobertura Total: Todos los activos</li>
+                                <li>+ Motores de Cortinas</li>
+                                <li>+ Carteles LED Exteriores</li>
+                                <li>Horario: Lun-Dom 08:00-22:00 hs</li>
+                                <li>Incluye feriados y fines de semana</li>
+                                <li>Tiempo de respuesta: < 2 horas</li>
+                                <li>6 llamados de emergencia/mes</li>
+                            </ul>
+                            
+                            <div class="inclusions">
+                                <strong>Incluye sin cargo:</strong><br>
+                                • Viáticos, peajes y estacionamiento<br>
+                                • Insumos menores (tornillería, fijaciones)<br>
+                                • Fondo de compras: $500.000/local<br>
+                                • Rendición detallada mensual
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">4. CONDICIONES COMERCIALES Y LEGALES</h2>
+                <div class="section-content">
+                    <ul class="coverage-list">
+                        <li><strong>Forma de Pago:</strong> El servicio se abona POR ADELANTADO, del 1 al 10 de cada mes.</li>
+                        <li><strong>Garantía de Servicio (SLA):</strong> En caso de que el PRESTADOR no pueda cumplir con un servicio solicitado por causas propias, se emitirá una NOTA DE CRÉDITO a favor del CLIENTE dentro de las 96 horas posteriores, descontando el valor proporcional del servicio no prestado.</li>
+                        <li><strong>Seguridad Laboral:</strong> AXIAL SECURITY asume la total responsabilidad laboral sobre el personal técnico. Se presentan certificados de ART/Accidentes Personales con Cláusula de No Repetición a favor de MAGA+.</li>
+                        <li><strong>Vigencia:</strong> El contrato tiene una vigencia mensual renovable automáticamente.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">ANEXO A: NÓMINA DE SUCURSALES (RED MAGA+)</h2>
+                <div class="section-content">
+                    <p>El servicio se prestará en las siguientes ubicaciones detalladas:</p>
+                    
+                    <div class="zona-title">ZONA QUILMES</div>
+                    <div class="sucursales-grid">
+                        <div class="sucursal-card">
+                            <div class="sucursal-name">1. Suc. Del Este</div>
+                            <div class="sucursal-address">Lavalle 895 (Abierto 24hs)</div>
+                        </div>
+                        <div class="sucursal-card">
+                            <div class="sucursal-name">2. Suc. Moreno</div>
+                            <div class="sucursal-address">Moreno 745</div>
+                        </div>
+                        <div class="sucursal-card">
+                            <div class="sucursal-name">3. Suc. Nueva Era</div>
+                            <div class="sucursal-address">Av. Mitre 801</div>
+                        </div>
+                    </div>
+                    
+                    <div class="zona-title">ZONA AVELLANEDA / PIÑEYRO / SARANDÍ / DOMÍNICO</div>
+                    <div class="sucursales-grid">
+                        <div class="sucursal-card">
+                            <div class="sucursal-name">4. Suc. Cassissa</div>
+                            <div class="sucursal-address">Av. Mitre 1471</div>
+                        </div>
+                        <div class="sucursal-card">
+                            <div class="sucursal-name">5. Suc. Americana</div>
+                            <div class="sucursal-address">Av. Mitre 4701 (Piñeyro)</div>
+                        </div>
+                        <div class="sucursal-card">
+                            <div class="sucursal-name">6. Suc. Sarandí</div>
+                            <div class="sucursal-address">Av. Mitre 3385</div>
+                        </div>
+                        <div class="sucursal-card">
+                            <div class="sucursal-name">7. Suc. Domínico</div>
+                            <div class="sucursal-address">Av. Mitre 4701 (Domínico)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="zona-title">ZONA BERNAL</div>
+                    <div class="sucursales-grid">
+                        <div class="sucursal-card">
+                            <div class="sucursal-name">8. Suc. Bernal</div>
+                            <div class="sucursal-address">Cerrito 50 esq. Pringles</div>
+                        </div>
+                        <div class="sucursal-card">
+                            <div class="sucursal-name">9. Suc. Maga II</div>
+                            <div class="sucursal-address">Lebensohn 11</div>
+                        </div>
+                    </div>
+                    
+                    <div class="zona-title">ZONA LANÚS</div>
+                    <div class="sucursales-grid">
+                        <div class="sucursal-card">
+                            <div class="sucursal-name">10. Suc. Nueva Esq.</div>
+                            <div class="sucursal-address">Máximo Paz 1084 (Abierto 24hs)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="zona-title">ZONA SOLANO</div>
+                    <div class="sucursales-grid">
+                        <div class="sucursal-card">
+                            <div class="sucursal-name">11. Suc. Solano</div>
+                            <div class="sucursal-address">Calle 893 N° 3596</div>
+                        </div>
+                        <div class="sucursal-card">
+                            <div class="sucursal-name">12. Suc. Maly</div>
+                            <div class="sucursal-address">Calle 893 N° 4291</div>
+                        </div>
+                    </div>
+                    
+                    <div class="zona-title">ZONA VARELA</div>
+                    <div class="sucursales-grid">
+                        <div class="sucursal-card">
+                            <div class="sucursal-name">13. Suc. Varela</div>
+                            <div class="sucursal-address">Monteagudo 3101 (Abierto 24hs)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-box" style="margin-top: 30px;">
+                        <strong>Nota:</strong> Total relevado: 13 sucursales. Se cubre la sucursal N° 14 en caso de apertura o administración central no listada.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="signature-section">
+                <h2 class="section-title">CONFORMIDAD Y SELECCIÓN DE SERVICIO</h2>
+                
+                <div class="checkbox-group">
+                    <h3 style="margin-bottom: 20px; color: #1e3c72;">Opción Elegida (Marcar con X):</h3>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="plan1">
+                        <span class="checkbox-label">ABONO BÁSICO ($ 600.000 + IVA por sucursal/mes)</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="plan2">
+                        <span class="checkbox-label">ABONO MEDIUM ($ 900.000 + IVA por sucursal/mes)</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="plan3">
+                        <span class="checkbox-label">ABONO FULL ($ 1.200.000 + IVA por sucursal/mes)</span>
+                    </label>
+                </div>
+                
+                <h3 style="margin: 40px 0 20px 0; color: #1e3c72; font-size: 1.3em;">FIRMAS DE CONFORMIDAD:</h3>
+                
+                <div class="signature-container">
+                    <div class="signature-box">
+                        <h4 style="margin-bottom: 20px; color: #2c3e50;">Por MAGA+</h4>
+                        <div class="signature-line"></div>
+                        <div class="signature-label">Firma y Aclaración</div>
+                        <p style="margin-top: 10px; font-size: 0.9em; color: #7f8c8d;">(Responsable / Apoderado)</p>
+                    </div>
+                    
+                    <div class="signature-box">
+                        <h4 style="margin-bottom: 20px; color: #2c3e50;">Por AXIAL SECURITY</h4>
+                        <div class="signature-line"></div>
+                        <div class="signature-label">Iván Abrigo</div>
+                        <p style="margin-top: 10px; font-size: 0.9em; color: #7f8c8d;">(Responsable Técnico)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>AXIAL SECURITY</strong> | Servicios Técnicos Profesionales</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Documento generado el 24 de Noviembre de 2025</p>
+        </div>
+    </div>
+</body>
+</html>
